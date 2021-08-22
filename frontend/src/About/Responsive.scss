@@ -1,0 +1,105 @@
+@mixin res($maxwidth) {
+    @media only screen and (max-width: $maxwidth) {
+        @content;
+    }
+}
+
+@include res(1600px){
+    #About {
+        #instagram-art-twitter {
+            img {
+                width: 400px;
+            }
+            .Socials {
+                width: 200px;
+                height: 200px;
+            }
+        }
+        b {
+            font-size: 65px;
+            width: 800px;
+        }
+    }
+}
+
+@include res(1050px){
+    #About {
+        #instagram-art-twitter{
+            img {
+                width: 300px;
+            }
+            .Socials {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        b {
+            font-size: 55px;
+            width: 600px;
+        }
+    }
+}
+
+@include res(780px){
+    #About {
+        #instagram-art-twitter {
+            img {
+                width: 400px !important;
+            }
+            .Socials {
+                display: none;
+            }
+        }
+        #instagram-twitter-alt {
+            display: flex;
+            align-items: center;
+            margin-top: 40px;
+            img {
+                width: 80px;
+                height: 80px;
+                margin: 0 20px;
+            }
+        }
+        b {
+            font-size: 45px;
+            width: 450px;
+        }
+    }
+}
+
+
+@include res(500px){
+    #About {
+        #instagram-art-twitter {
+            img {
+                width: 300px !important;
+            }
+        }
+        #instagram-twitter-alt {
+            img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        b {
+            font-size: 30px;
+            width: 80vw;
+        }
+    }
+}
+
+@include res(350px){
+    #About {
+        #instagram-art-twitter {
+            img {
+                width: 200px !important;
+            }
+        }
+        #instagram-twitter-alt {
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+}

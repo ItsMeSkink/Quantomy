@@ -1,0 +1,42 @@
+#About {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #instagram-twitter-alt {
+        display: none;
+    }
+    #instagram-art-twitter {
+        width: 100vw;
+
+        img {
+            width: 500px;
+            border-radius: 20px;
+        }
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .Socials {
+            height: 250px;
+            width: 250px;
+            padding: 40px;
+            border-radius: 80px;
+            background-color: white;
+            transition: all 0.15s ease-in-out;
+
+            &:hover {
+                filter: invert(1);
+            }
+        }
+    }
+
+    b {
+        width: 1000px;
+        font-size: 80px;
+        font-family: Raleway;
+        word-wrap: break-word;
+        text-align: center;
+        margin-top: 50px;
+    }
+}

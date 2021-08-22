@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Caladea:ital@1&display=swap");
+
+#episodes {
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    margin-top: 100px;
+    * {
+        z-index: auto;
+    }
+}
+
+.react-parallax-bgimage {
+    image-rendering: pixelated !important;
+}
+.episode {
+    width: 80%;
+    height: 120vh;
+    background-size: 20%;
+    filter: opacity(1);
+    z-index: 100;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    #subjectstamp {
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+        padding: 20px;
+        background-color: white;
+        filter: invert(1);
+        border-radius: 1000px;
+        position: absolute;
+        bottom: 20px;
+        left: -60px;
+    }
+
+    #iconicline-speakers {
+        width: 50%;
+
+        h1 {
+            color: white;
+            font-family: Caladea;
+            font-size: 80px;
+        }
+
+        #speakers {
+            display: flex;
+            align-items: center;
+            width: 80%;
+            justify-content: space-between;
+            padding-bottom: 0 !important;
+            span {
+                display: flex;
+                align-items: center;
+                position: relative;
+                img {
+                    width: 250px;
+                    height: 250px;
+                    border-radius: 10000px;
+                    margin: 0px 20px;
+                }
+                b {
+                    position: absolute;
+                    left: -30px;
+                    padding: 10px;
+                    background-color: black;
+                    border-radius: 10px;
+                    font-size: 40px;
+                    font-weight: bolder;
+                    color: white;
+                    writing-mode: vertical-rl;
+                    transform: rotate(180deg);
+                    text-orientation: mixed;
+                }
+            }
+        }
+    }
+    #Embed {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 40%;
+        height: 55%;
+        overflow: auto;
+        transform: scale(1.3) translate(50px);
+        margin-top: 80px;
+
+        iframe {
+            // transform: scale(1.5) translate(50px);
+            margin: 2px 0;
+        }
+    }
+}
+
+.react-parallax-bgimage {
+    filter: brightness(0.8) contrast(1) !important;
+}

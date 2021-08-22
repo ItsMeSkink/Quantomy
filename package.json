@@ -1,0 +1,22 @@
+{
+  "name": "the_quantomy_podcast",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/index.js",
+    "client": "concurrently \"cd backend && npm start\" \"cd frontend && npm start\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^6.2.1",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "mongoose": "^5.13.7",
+    "path": "^0.12.7"
+  }
+}

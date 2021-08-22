@@ -1,0 +1,150 @@
+@mixin res($maxwidth) {
+    @media only screen and (max-width: $maxwidth) {
+        @content;
+    }
+}
+
+@include res(1530px) {
+    #speakers {
+        margin-left: 1vw;
+        padding-bottom: 65vh !important;
+
+        .speaker {
+            #hostpic-socials {
+                #hostpic {
+                    width: 400px !important;
+                }
+                #socials {
+                    margin-right: 20px;
+                    img {
+                        width: 60px;
+                        height: 60px;
+                        margin: 25px 0;
+                    }
+                }
+            }
+            #info {
+                height: 75%;
+                margin-bottom: 30vh;
+
+                b {
+                    font-size: 60px;
+                }
+                i {
+                    font-size: 40px;
+                }
+                div {
+                    font-size: 20px;
+                    margin-top: 20px;
+                    line-height: 38px;
+                }
+            }
+        }
+    }
+}
+
+@include res(1100px) {
+    #speakers {
+        .speaker {
+            #hostpic-socials {
+                #hostpic {
+                    width: 300px !important;
+                }
+            }
+            #info {
+                height: 60%;
+                b {
+                    font-size: 50px;
+                }
+                i {
+                    font-size: 30px;
+                }
+                div {
+                    font-size: 15px;
+                    line-height: 35px;
+                }
+            }
+        }
+    }
+}
+
+@include res(950px) {
+    #speakers {
+        .speaker {
+            flex-direction: column;
+
+            #hostpic-socials {
+                flex-direction: column-reverse;
+
+                #socials {
+                    flex-direction: row;
+                }
+            }
+
+            #info {
+                padding-top: 20px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                b,
+                i {
+                    text-align: center;
+                }
+
+                br {
+                    display: none;
+                }
+                div {
+                    margin-top: 20px;
+                    width: 400px;
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+}
+
+@include res(650px) {
+    #speakers {
+        .speaker {
+            #info {
+                padding: 0;
+                div {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+@include res(500px) {
+    #speakers {
+        .speaker {
+            #hostpic-socials {
+                #hostpic {
+                    width: 250px !important;
+                }
+
+                #socials {
+                    img {
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+            }
+            #info {
+                b {
+                    font-size: 40px;
+                }
+                i {
+                    font-size: 25px;
+                }
+                div {
+                    font-size: 20px;
+                    width: 80vw;
+                }
+            }
+        }
+    }
+}

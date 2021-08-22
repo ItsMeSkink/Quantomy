@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+node_modules
+=======
 # Logs
 logs
 *.log
@@ -102,3 +105,4 @@ dist
 
 # TernJS port file
 .tern-port
+>>>>>>> 4a1ca03af7a880b1393ba74550e22ba7f44300c3

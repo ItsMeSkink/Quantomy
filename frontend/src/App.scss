@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caladea:ital@1&display=swap");
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+* {
+  font-family: Raleway;
+  outline: none;
+}
+.material-icons-round,
+.material-icons {
+  cursor: default;
+  user-select: none;
+}
+
+#home {
+  // padding-bottom: 20vh;
+  padding-bottom: 10vh;
+  #quantomylogo {
+    position: fixed;
+    width: 350px;
+    top: -10px;
+    left: 300px;
+    z-index: 1000;
+  }
+
+  #tagline {
+    font-family: "Raleway", sans-serif;
+    font-size: 60px;
+    margin-top: 25vh;
+    text-align: center;
+  }
+}
+
+.react-parallax:last-child .react-parallax-content .episode {
+  height: 100vh;
+}
+
+// #episodes {
+//   animation: WebsiteOpen 2s ease-in-out 1;
+
+//   @keyframes WebsiteOpen {
+//     from{
+//       transform: translateY(1500px);
+//       filter: opacity(0);
+//     }
+//     to {
+//       transform: translateY(0);
+//       filter: opacity(1);
+//     }
+//   }
+// }
