@@ -7,7 +7,7 @@ import Navigation from "./Navigation/Navigation";
 import Episodes from "./Episodes/Episodes";
 import $ from "jquery";
 import EpisodeUpload from "./EpisodeUpload/EpisodeUpload";
-import "./AppResponsive.scss"
+import "./AppResponsive.scss";
 
 export default function App() {
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function App() {
         </Link>
 
         <Navigation />
-        <p id="tagline">“Explaining the Complicated in Layman..”</p>
+        <p id="tagline">“Explaining the Complicated in Layman”</p>
 
         <Route exact path="/">
           <Episodes />
@@ -51,6 +51,7 @@ export default function App() {
         <Route exact path="/upload">
           <EpisodeUpload />
         </Route>
+      <footer>Designed and Coded by Lakshya Pratap Monga (Physics)</footer>
       </div>
     </Router>
   );

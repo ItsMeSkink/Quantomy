@@ -24,15 +24,19 @@ export default function Navigation() {
   return (
     <div id="navigation">
       <FilterSubject SubjectFilter={SubjectFilter} />
-
       <img
-        src="https://www.freeiconspng.com/uploads/discord-black-icon-1.png"
-        alt="Discord"
-        id="discord"
+        src="https://github.com/ItsMeSkink/Quantomy/blob/master/Quantomy%20Subjects.png?raw=true"
+        alt="Parent Subjects"
+        id="ParentSubjects"
         onClick={() => {
-          window.open("https://discord.gg/SyKQUApYgj", "_blank");
+          if (SubjectFilter === false) {
+            setSubjectFilter(true);
+          } else if (SubjectFilter === true) {
+            setSubjectFilter(false);
+          }
         }}
       />
+
       <Link to="/hosts">
         <img
           src="https://www.kindpng.com/picc/m/47-474987_com-locutor-png-speaker-icon-transparent-png.png"
@@ -49,15 +53,11 @@ export default function Navigation() {
         />
       </Link>
       <img
-        src="https://github.com/ItsMeSkink/Quantomy/blob/master/Quantomy%20Subjects.png?raw=true"
-        alt="Parent Subjects"
-        id="ParentSubjects"
+        src="https://www.freeiconspng.com/uploads/discord-black-icon-1.png"
+        alt="Discord"
+        id="discord"
         onClick={() => {
-          if (SubjectFilter === false) {
-            setSubjectFilter(true);
-          } else if (SubjectFilter === true) {
-            setSubjectFilter(false);
-          }
+          window.open("https://discord.gg/SyKQUApYgj", "_blank");
         }}
       />
     </div>

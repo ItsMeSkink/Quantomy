@@ -61,7 +61,7 @@ export default function About() {
         <br />
         <br />
         The name, "Quantomy" signifies everything ranging from the fundamental
-        level of our universe (Quantum) to the Astronomical Level (Astronomy).
+        level of our universe (Quantum) to the Astronomical Level (Astronomy) which includes everything that we as humans have ever observed, including Chemical Compounds, Biological Fluids, Mathematical Equations and more.
         We tend to explain curious topics within this level and sometimes also
         explore the possibilites beyond it.
         <br />

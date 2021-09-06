@@ -5,6 +5,9 @@
 }
 
 @include res(1530px) {
+    #home {
+        padding-bottom: 10vh;
+    }
     .Subjects {
         overflow: auto;
         height: 85vh;
@@ -99,13 +102,13 @@
     }
     #navigation {
         bottom: -9px;
-        padding: 25px 0;
+        // padding: 25px 0;
         #ParentSubjects {
             width: auto !important;
         }
         img {
-            width: 45px !important;
-            height: 45px !important;
+            width: 30px !important;
+            height: 30px !important;
         }
     }
 

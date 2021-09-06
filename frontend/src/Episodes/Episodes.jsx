@@ -25,7 +25,7 @@ export default function Episodes() {
             Speaker={item.Speaker}
             Host={item.Host}
             Subject={item.Subject}
-            idNo={index + 1}
+            idNo={index}
           />
         );
       })}

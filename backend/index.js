@@ -15,7 +15,7 @@ app.use(express.json({ limit: '200mb' }))
 const DataBaseName = 'QuantomyPodcast'
 const CollectionName1 = 'Podcast'
 
-mongoose.connect(`mongodb+srv://LakshyaPratapMonga:SML@9713@quantomypodcast.njcax.mongodb.net/${DataBaseName}?retryWrites=true&w=majority`, {
+mongoose.connect(`..............................................................`, {
     useNewUrlParser: true,
     useCreateIndex: true
 })
@@ -28,7 +28,8 @@ db.once('open', () => {
 const Schema1 = new mongoose.Schema({
     EmbedString: String,
     Subject: String,
-    // Hosts: Array,
+    Host: Object,
+    Speaker: Object,
     Host: String,
     Speaker: String,
     BackgroundImage: String,
@@ -39,13 +40,6 @@ const Schema1 = new mongoose.Schema({
 
 const podcastEpisode = mongoose.model(CollectionName1, Schema1)
 
-const Episode = new podcastEpisode({
-    EmbedString: '<iframe src="https://open.spotify.com/embed/episode/0Det5ifwY7PHsSlWb4lkpG" width="100%" height="232" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe> <iframe src="https://open.spotify.com/embed/episode/2emqpyJeKdMP3wfAa8AaGR" width="100%" height="232" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe> <iframe src="https://open.spotify.com/embed/episode/1iPySFFLDtr1J16x15q6ad" width="100%" height="232" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
-    Subject: 'Physics',
-    Hosts: ['Lakshya', 'Shourya']
-})
-
-// Episode.save()
 
 
 
@@ -57,8 +51,8 @@ app.post('/uploadepisode', (req, res) => {
     const Episode = new podcastEpisode({
         EmbedString: episodedetails.EmbedCode,
         Subject: episodedetails.Subject,
-        Host: episodedetails.Host,
-        Speaker: episodedetails.Speaker,
+        Host: JSON.parse(episodedetails.Host),
+        Speaker: JSON.parse(episodedetails.Speaker),
         BackgroundImage: episodedetails.BackgroundImage,
         Quoteline: episodedetails.QuoteLine
 
@@ -70,8 +64,7 @@ app.post('/uploadepisode', (req, res) => {
 app.get('/episodes', (req, res) => {
 
     podcastEpisode.find({}, (err, CollectionName) => {
-        // res.send(JSON.stringify(CollectionName))
-        res.send(CollectionName)
+        res.send(CollectionName.reverse())
     })
 
 
@@ -86,7 +79,7 @@ app.get('/*', (req, res) => {
 
 app.post('/authentication', (req, res) => {
 
-    if (req.body === 'SML@9713') {
+    if (req.body === '.........................') {
         res.json(true)
     }
     else {

@@ -1,159 +1,141 @@
 import React, { useEffect, useState } from "react";
 import $ from "jquery";
+import Popover from "@material-ui/core/Popover";
+
+function SpeakerTemplate(props) {
+  const [Person, setPerson] = useState("");
+  const [ProfileImage, setProfileImage] = useState(
+    "https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png"
+  );
+  const [OtherPerson, setOtherPerson] = useState("");
+  const [OtherPersonPopover, setOtherPersonPopover] = useState(false);
+
+  return (
+    <div className={`${props.for}Upload`}>
+      <b>{ props.for}</b>
+      <span id="image-options">
+        <img src={ProfileImage} alt={Person} />
+
+        <div>
+          <label htmlFor={`Lakshya${props.for}`}>
+            Lakshya
+            <input
+              type="radio"
+              name={props.for}
+              id={`Lakshya${props.for}`}
+              value={JSON.stringify({
+                Name: "Lakshya Pratap Monga",
+                ProfileImage:
+                  "https://pbs.twimg.com/profile_images/1223955790144274432/T0jxtR0l_400x400.jpg",
+              })}
+              onInput={(e) => {
+                setProfileImage(JSON.parse(e.target.value).ProfileImage);
+                setPerson(JSON.parse(e.target.value).Name);
+              }}
+            />
+          </label>
+          <label htmlFor={`Shourya${props.for}`}>
+            Shourya
+            <input
+              type="radio"
+              name={props.for}
+              id={`Shourya${props.for}`}
+              value={JSON.stringify({
+                Name: "Shourya Sethi",
+                ProfileImage:
+                  "https://github.com/ItsMeSkink/Quantomy/blob/master/Shourya%20Profile%20Image.jpeg?raw=true",
+              })}
+              onInput={(e) => {
+                setPerson(JSON.parse(e.target.value).Name);
+                setProfileImage(JSON.parse(e.target.value).ProfileImage);
+              }}
+            />
+          </label>
+          <label htmlFor={`Manan${props.for}`}>
+            Manan
+            <input
+              type="radio"
+              name={props.for}
+              id={`Manan${props.for}`}
+              value={JSON.stringify({
+                Name: "Manan Sethi",
+                ProfileImage:
+                  "https://github.com/ItsMeSkink/Quantomy/blob/master/Manan%20Profile%20Image.jpg?raw=true",
+              })}
+              onInput={(e) => {
+                setProfileImage(JSON.parse(e.target.value).ProfileImage);
+                setPerson(JSON.parse(e.target.value).Name);
+              }}
+            />
+          </label>
+          <label
+            htmlFor={`Other${props.for}`}
+            id={`other${props.for}`.toLowerCase()}
+            onClick={() => {
+              setOtherPersonPopover(true);
+            }}
+          >
+            Other
+            <input type="radio" name="Speaker" id={`Other${props.for}`} value={JSON.stringify({
+              Name: Person,
+              ProfileImage: ProfileImage
+            })} />
+          </label>
+          <Popover
+            open={OtherPersonPopover}
+            anchorEl={document.getElementById(
+              `other${props.for}`.toLowerCase()
+            )}
+            onClose={() => {
+              setOtherPersonPopover(false);
+            }}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "center",
+            }}
+            classes={{
+              paper: "OtherPersonInputs",
+            }}
+          >
+            <input
+              type="text"
+              name={`Other${props.for}Name`}
+              id={`Other${props.for}Name`}
+              placeholder={`Other ${props.for} Name`}
+              onInput={(e) => {
+                setPerson(e.target.value)
+              }}
+            />
+            <input
+              type="url"
+              name={`Other${props.for}ProfileImage`}
+              id={`Other${props.for}ProfileImage`}
+              placeholder={`Other ${props.for} Profile Image URL`}
+              onInput={(e) => {
+                setProfileImage(e.target.value)
+              }}
+            />
+            <button onClick={() => {
+              setTimeout(() => {
+                setOtherPersonPopover(false)
+              }, 100);
+            }}>Select</button>
+          </Popover>
+        </div>
+      </span>
+    </div>
+  );
+}
 
 export default function Speakers() {
-  const [speaker, setSpeaker] = useState("");
-
-  setTimeout(() => {
-    $("#speakerchose span label input").on("input", (e) => {
-      setSpeaker(e.target.value);
-    });
-  }, 1);
-
-  useEffect(() => {
-    if (speaker === "Lakshya Pratap Monga") {
-      $("img#speaker").attr(
-        "src",
-        "https://pbs.twimg.com/profile_images/1223955790144274432/T0jxtR0l.jpg"
-      );
-    } else if (speaker === "Shourya Sethi") {
-      $("img#speaker").attr(
-        "src",
-        "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png"
-      );
-    } else if (speaker === "Manan Sethi") {
-      $("img#speaker").attr(
-        "src",
-        "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png"
-      );
-    }
-  }, [speaker]);
-  // ---------------
-
-  const [host, setHost] = useState("");
-
-  setTimeout(() => {
-    $("#hostchose span label input").on("input", (e) => {
-      setHost(e.target.value);
-    });
-  }, 1);
-
-  useEffect(() => {
-    if (host === "Lakshya Pratap Monga") {
-      $("img#host").attr(
-        "src",
-        "https://pbs.twimg.com/profile_images/1223955790144274432/T0jxtR0l.jpg"
-      );
-    } else if (host === "Shourya Sethi") {
-      $("img#host").attr(
-        "src",
-        "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png"
-      );
-    } else if (host === "Manan Sethi") {
-      $("img#host").attr(
-        "src",
-        "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png"
-      );
-    }
-  }, [host]);
-
-  setTimeout(() => {
-    $("#speakerchose span").mouseenter(() => {
-      $("#speakerchose span").css("filter", "opacity(1)");
-    });
-    $("#speakerchose span").mouseleave(() => {
-      if (speaker !== "") {
-        $("#speakerchose span").css("filter", "opacity(0)");
-      }
-    });
-    $("#hostchose span").mouseenter(() => {
-      $("#hostchose span").css("filter", "opacity(1)");
-    });
-    $("#hostchose span").mouseleave(() => {
-      if (host !== "") {
-        $("#hostchose span").css("filter", "opacity(0)");
-      }
-    });
-  }, 1);
   return (
-    <div id="speakers">
-      <span id="speakerchose">
-        <b>Speaker</b>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"
-          alt=""
-          id="speaker"
-        />
-        <span>
-          <label htmlFor="Lakshya1">
-            Lakshya
-            <input
-              type="radio"
-              name="Speaker"
-              id="Lakshya1"
-              value="Lakshya Pratap Monga"
-            />
-          </label>
-          <label htmlFor="Shourya1">
-            Shourya
-            <input
-              type="radio"
-              name="Speaker"
-              id="Shourya1"
-              value="Shourya Sethi"
-            />
-          </label>
-          <label htmlFor="Manan1">
-            Manan
-            <input
-              type="radio"
-              name="Speaker"
-              id="Manan1"
-              value="Manan Sethi"
-            />
-          </label>
-          <label htmlFor="Other1">
-            Other
-            <input type="radio" name="Speaker" id="Other1" value="Other1" />
-          </label>
-        </span>
-      </span>
-      <span id="hostchose">
-        <b>Host</b>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"
-          alt=""
-          id="host"
-        />
-        <span>
-          <label htmlFor="Lakshya2">
-            Lakshya
-            <input
-              type="radio"
-              name="Host"
-              id="Lakshya2"
-              value="Lakshya Pratap Monga"
-            />
-          </label>
-          <label htmlFor="Shourya2">
-            Shourya
-            <input
-              type="radio"
-              name="Host"
-              id="Shourya2"
-              value="Shourya Sethi"
-            />
-          </label>
-          <label htmlFor="Manan2">
-            Manan
-            <input type="radio" name="Host" id="Manan2" value="Manan Sethi" />
-          </label>
-          <label htmlFor="Other2">
-            Other
-            <input type="radio" name="Host" id="Other2" value="Other2" />
-          </label>
-        </span>
-      </span>
+    <div id="speaker">
+      <SpeakerTemplate for="Speaker" />
+      <SpeakerTemplate for="Host" />
     </div>
   );
 }

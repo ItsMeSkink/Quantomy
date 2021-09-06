@@ -12,9 +12,9 @@ import Authentication from "../Authentication/Authentication";
 export default function EpisodeUpload() {
   const [authentication, setAuthentication] = useState(false);
   setTimeout(() => {
-    $("#tagline").hide();
-    $("#quantomylogo").hide();
-    $("#navigation").hide();
+    $("#tagline").remove();
+    $("#homebutton").remove();
+    $("#navigation").remove();
 
     function authenticate() {
       fetch("/authentication", {
@@ -29,8 +29,8 @@ export default function EpisodeUpload() {
             $("#Authentication input").css("border", "10px solid red");
           } else if (confirmation === true) {
             $("#Upload").click(() => {
-              const speaker = $("#speakerchose span label input:checked").val();
-              const host = $("#hostchose span label input:checked").val();
+              const speaker = $("input#OtherSpeaker").val();
+              const host = $("input#OtherHost").val();
               const embedcode = $("#Embedding div").html();
               const bgimage = $("#episodeupload .react-parallax-bgimage").attr(
                 "src"
@@ -48,13 +48,14 @@ export default function EpisodeUpload() {
               };
 
               console.log(episode);
+
               fetch("/uploadepisode", {
                 method: "POST",
                 body: JSON.stringify(episode),
               });
-              
+
               setTimeout(() => {
-                window.location = '/'
+                window.location = "/";
               }, 100);
             });
           }

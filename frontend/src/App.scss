@@ -4,6 +4,7 @@
 body {
   overflow-y: auto;
   overflow-x: hidden;
+  margin: 0;
 }
 
 * {
@@ -16,9 +17,18 @@ body {
   user-select: none;
 }
 
+footer {
+  background-color: black;
+  color: white;
+  z-index: 100000;
+  width: 100%;
+  padding:  10px 0;
+  text-align: center;
+}
 #home {
-  // padding-bottom: 20vh;
-  padding-bottom: 10vh;
+  z-index: auto;
+  position: relative;
+
   #quantomylogo {
     position: fixed;
     width: 350px;
@@ -32,6 +42,7 @@ body {
     font-size: 60px;
     margin-top: 25vh;
     text-align: center;
+    -webkit-text-stroke: 0.5px black;
   }
 }
 
