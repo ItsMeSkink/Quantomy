@@ -40,9 +40,6 @@ const Schema1 = new mongoose.Schema({
 
 const podcastEpisode = mongoose.model(CollectionName1, Schema1)
 
-
-
-
 app.post('/uploadepisode', (req, res) => {
 
     const episodedetails = JSON.parse(req.body)
